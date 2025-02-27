@@ -2,8 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/RAG_UI',
-  assetPrefix: '/RAG_UI/',
+  basePath: '',
   images: { unoptimized: true },
   trailingSlash: true
 };
