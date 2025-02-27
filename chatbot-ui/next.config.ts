@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: 'export',
   basePath: '/RAG_UI',
-  images: { unoptimized: true }
+  images: { unoptimized: true },
+  trailingSlash: true
 };
 
 export default nextConfig;
