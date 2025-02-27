@@ -1,15 +1,12 @@
 {
   "name": "chatbot-ui",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://saisriharsha19.github.io/RAG_UI",
+  "private": false,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "export": "next export",
-    "deploy": "gh-pages -d out"
+    "lint": "next lint"
   },
   
   "dependencies": {
