@@ -9,7 +9,7 @@ import {
   Copy, Trash2, Moon, Sun, Mic, Send, 
   Paperclip, Download, Search, Smile, Clock,
   Check, CheckCheck, UserCircle, BotIcon,
-  Code, Link, ImageIcon, FileText, Upload,
+  Code, Link, ImageIcon, FileText,
   Trash, FileUp, BookOpen, Database, AlertCircle
 } from "lucide-react";
 
@@ -74,7 +74,7 @@ export default function Chatbot() {
     if (savedMessages) {
       try {
         const parsedMessages = JSON.parse(savedMessages);
-        const messagesWithDateObjects = parsedMessages.map((msg: any) => ({
+        const messagesWithDateObjects = parsedMessages.map((msg: Message) => ({
           ...msg,
           timestamp: new Date(msg.timestamp)
         }));
@@ -196,7 +196,7 @@ export default function Chatbot() {
     if (!input.trim() && selectedFiles.length === 0) return;
   
     let documentUploaded = false;
-    let uploadedDocAttachments: Array<{type: string, url: string, name: string, docId?: string}> = [];
+    const uploadedDocAttachments: Array<{type: string, url: string, name: string, docId?: string}> = [];
     
     if (selectedFiles.length > 0) {
       for (const file of selectedFiles) {
@@ -503,7 +503,7 @@ export default function Chatbot() {
         JSON.parse(content);
         return 'json';
       } catch (e) {
-        // Not valid JSON
+        console.log(e);
       }
     }
     
@@ -728,7 +728,7 @@ return (
             </div>
           )}
           
-          {filteredMessages.map((msg, i) => (
+          {filteredMessages.map((msg) => (
             <div key={msg.id} className={`relative ${searchTerm && msg.content.toLowerCase().includes(searchTerm.toLowerCase()) ? 'bg-yellow-50 dark:bg-yellow-900/30 p-1 rounded-xl' : ''}`}>
               <div className="flex items-start">
                 {/* Avatar */}
